@@ -22,8 +22,9 @@ if __name__ == "__main__":
         quit()
 
     for fname in argv[1: len(argv)]:
-        try:
-            inf = open(fname, "r")
+        with open(fname, "r") as fna:
+            inf = fna.readlines()
+
             pred = " "
             count = 1
 
@@ -40,6 +41,3 @@ if __name__ == "__main__":
 
                 pred = i
                 count += 1
-
-        finally:
-            inf.close()
